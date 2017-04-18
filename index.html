@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>520</title>
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style-type:none;
+		}
+		body{
+			background: #000;
+			height: 1600px;
+			overflow: hidden;
+			font:12px/180% Arial, Helvetica, sans-serif, "华文行楷";
+			-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		    box-sizing: border-box;
+		}
+		#wrap{
+			perspective:800px;
+		}
+		#box{
+			transform-style: preserve-3d;
+			height: 180px;
+			width: 120px;
+			margin: 250px auto;
+			/* border: 2px solid red; */
+			position: relative;
+			transform:rotateX(10deg) rotateY(0deg);
+		}
+		#box img{
+			position: absolute;
+			height: 100%;
+			width: 100%;	
+			border-radius: 2px;
+			box-shadow: 0 0 5px #f9f;
+		/* 	transform: rotateY(0deg); */
+
+		}
+		#box p{
+			width: 1200px;
+			height: 1200px;
+			background: -webkit-radial-gradient(circle, rgba(244,23,234,.3), #000, #000); 
+			background: -o-radial-gradient(circle,rgba(244,23,234,.3), #000, #000); 
+			background: -moz-radial-gradient(circle,rgba(244,23,234,.3), #000, #000); 
+			border-radius:50%;
+			margin-left: -600px;
+			transform: rotateX(90deg) translateZ(400px);		
+		}
+		/* 字 */
+		.container {
+			margin-top:0px;
+		    width:100%;
+		    /* position:fixed; */
+			 position:absolute;
+		    height:300px;
+		    text-align: center;
+		    margin-left: 0px;
+		    z-index:9999;
+		    /* margin-top:13%; */
+		}
+		.container h3 span{
+			color: #FFF;
+			font-size:31px;
+			line-height:40px;
+		}
+		/* 心 */
+		.heart3d {
+		  position: absolute;
+		  top: 0;
+		  right: 0;
+		  bottom: 0;
+		  left: 0;
+		  margin: auto;
+		  width: 100px;
+		  height: 160px;
+		  -webkit-transform-style: preserve-3d;
+		  transform-style: preserve-3d;
+		/*   -webkit-animation: spin 15s infinite linear;
+		animation: spin 15s infinite linear; */
+		}
+		.heart3d [class^="rib"] {
+		  position: absolute;
+		  width: 100px;
+		  height: 160px;
+		  border: solid #f22613;
+		  border-width: 1px 1px 0 0;
+		  border-radius: 50% 50% 0 / 40% 50% 0;
+		}
+		.heart3d [class$="1"] {
+		  -webkit-transform: rotateY(10deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(10deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="2"] {
+		  -webkit-transform: rotateY(20deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(20deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="3"] {
+		  -webkit-transform: rotateY(30deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(30deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="4"] {
+		  -webkit-transform: rotateY(40deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(40deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="5"] {
+		  -webkit-transform: rotateY(50deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(50deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="6"] {
+		  -webkit-transform: rotateY(60deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(60deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="7"] {
+		  -webkit-transform: rotateY(70deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(70deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="8"] {
+		  -webkit-transform: rotateY(80deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(80deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="9"] {
+		  -webkit-transform: rotateY(90deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(90deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="10"] {
+		  -webkit-transform: rotateY(100deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(100deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="11"] {
+		  -webkit-transform: rotateY(110deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(110deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="12"] {
+		  -webkit-transform: rotateY(120deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(120deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="13"] {
+		  -webkit-transform: rotateY(130deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(130deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="14"] {
+		  -webkit-transform: rotateY(140deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(140deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="15"] {
+		  -webkit-transform: rotateY(150deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(150deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="16"] {
+		  -webkit-transform: rotateY(160deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(160deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="17"] {
+		  -webkit-transform: rotateY(170deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(170deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="18"] {
+		  -webkit-transform: rotateY(180deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(180deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="19"] {
+		  -webkit-transform: rotateY(190deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(190deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="20"] {
+		  -webkit-transform: rotateY(200deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(200deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="21"] {
+		  -webkit-transform: rotateY(210deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(210deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="22"] {
+		  -webkit-transform: rotateY(220deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(220deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="23"] {
+		  -webkit-transform: rotateY(230deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(230deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="24"] {
+		  -webkit-transform: rotateY(240deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(240deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="25"] {
+		  -webkit-transform: rotateY(250deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(250deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="26"] {
+		  -webkit-transform: rotateY(260deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(260deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="27"] {
+		  -webkit-transform: rotateY(270deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(270deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="28"] {
+		  -webkit-transform: rotateY(280deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(280deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="29"] {
+		  -webkit-transform: rotateY(290deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(290deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="30"] {
+		  -webkit-transform: rotateY(300deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(300deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="31"] {
+		  -webkit-transform: rotateY(310deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(310deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="32"] {
+		  -webkit-transform: rotateY(320deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(320deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="33"] {
+		  -webkit-transform: rotateY(330deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(330deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="34"] {
+		  -webkit-transform: rotateY(340deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(340deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="35"] {
+		  -webkit-transform: rotateY(350deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(350deg) rotateZ(45deg) translateX(30px);
+		}
+		.heart3d [class$="36"] {
+		  -webkit-transform: rotateY(360deg) rotateZ(45deg) translateX(30px);
+		  transform: rotateY(360deg) rotateZ(45deg) translateX(30px);
+		}
+
+		@-webkit-keyframes spin {
+		  to {
+		    -webkit-transform: rotateY(360deg) rotateX(360deg);
+		    transform: rotateY(360deg) rotateX(360deg);
+		  }
+		}
+
+		@keyframes spin {
+		  to {
+		    -webkit-transform: rotateY(360deg) rotateX(360deg);
+		    transform: rotateY(360deg) rotateX(360deg);
+		  }
+		}
+		
+	</style>
+	<style> 
+	body { background:#000; }
+	@keyframes mysnow {
+		0% { bottom: 100%; opacity: 0; }
+		50% { opacity: 1; transform: rotate(720deg);}
+		100% { transform: rotate(0deg); opacity: 0; bottom: 0%;}
+	}
+	.container { position: fixed; }
+	.pic { position: absolute; opacity: 0; animation: mysnow 5s;height: 30px; }
+	</style>
+	<script type="text/javascript">
+		window.onload=function () {
+			// body...
+			var oBox=document.getElementById('box');
+			var oImg=oBox.getElementsByTagName('img');
+			var oDeg=360/oImg.length;
+			var nowX,nowY,minuX=0,minuY=-10;
+			var timer=null;
+			for (var i = 0; i < oImg.length; i++) {
+				oImg[i].style.transform='rotateY('+oDeg*i+'deg)translateZ(350px)';
+				oImg[i].style.transition='transform 1s '+(oImg.length-1-i)*0.1+'s';
+
+			}
+			timers(minuX,minuY);
+			function timers(minuX,minuY) {
+				// body...
+				//clearInterval(timer);
+				timer=setInterval(function () {
+				// body...
+				
+				minuX++;
+				//alert(123)
+				oBox.style.transform='rotateX('+minuY+'deg)rotateY('+minuX+'deg)';
+				//console.log(oBox.style.transform);
+			},100)
+			}
+			document.onmousedown=function (ev) {
+					oEvent=ev||event;
+					clearInterval(timers);
+					var lastX=oEvent.clientX;
+					var lastY=oEvent.clientY;
+					//console.log(lastX,lastY);
+				this.onmousemove=function (ev) {
+					// body...
+					oEvent=ev||event;
+				
+					var nowX=oEvent.clientX;
+					var nowY=oEvent.clientY;
+					//console.log(nowX,nowY);  
+					 minuX +=(nowX-lastX)/100;
+					 minuY -=(nowY-lastY)/200;
+					oBox.style.transform='rotateX('+minuY+'deg)rotateY('+minuX+'deg)';
+				}
+				this.onmouseup=function () {
+					// body...
+					//oBox.style.transform='rotateX('+minuY+'deg)rotateY('+minuX+'deg)';
+				
+					this.onmousemove=null;
+					clearInterval(timers);
+			}				
+
+				return false;
+			}
+			
+		}
+
+	</script>
+</head>
+<body>
+<!-- 字 -->
+<div class="container">
+	<h3 id="effect">
+		<span>你</span>
+		<span>快</span>
+		<span>乐</span>
+		<span>是</span>
+		<span>我</span>
+		<span>最</span>
+		<span>大</span>
+		<span>的</span>
+		<span>幸</span>
+		<span>福</span>
+	</h3>
+</div>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> 
+<script src="js/text_plugin.js"></script> 
+<script src="js/texteffect.js"></script>
+<!-- 花 -->
+<script src="js/snowfall.jquery.js"></script> 
+<script>
+       $(document).ready(function () {
+       	// body...
+       	 $(document).snowfall('clear');
+        $(document).snowfall({
+            image: "images/love.gif",
+            flakeCount:60,
+            minSize: 10,
+            maxSize: 30
+        });
+       })
+    </script>
+</div>
+<!-- 照片 -->
+	<div id="wrap">
+	 
+		<div id="box">
+			<img src="images/02.jpg" alt="">			
+			<img src="images/05.jpg" alt="">
+			<img src="images/03.jpg" alt="">
+			<img src="images/04.jpg" alt="">
+			<img src="images/01.jpg" alt="">
+			<img src="images/07.jpg" alt="">
+			<img src="images/02.jpg" alt="">		
+			<img src="images/03.jpg" alt="">
+			<img src="images/04.jpg" alt="">
+			<img src="images/05.jpg" alt="">
+			<img src="images/07.jpg" alt="">
+			
+			<div style="text-align:center;clear:both;">
+			
+				  <div class='heart3d'>
+				  <div class='rib1'></div>
+				  <div class='rib2'></div>
+				  <div class='rib3'></div>
+				  <div class='rib4'></div>
+				  <div class='rib5'></div>
+				  <div class='rib6'></div>
+				  <div class='rib7'></div>
+				  <div class='rib8'></div>
+				  <div class='rib9'></div>
+				  <div class='rib10'></div>
+				  <div class='rib11'></div>
+				  <div class='rib12'></div>
+				  <div class='rib13'></div>
+				  <div class='rib14'></div>
+				  <div class='rib15'></div>
+				  <div class='rib16'></div>
+				  <div class='rib17'></div>
+				  <div class='rib18'></div>
+				  <div class='rib19'></div>
+				  <div class='rib20'></div>
+				  <div class='rib21'></div>
+				  <div class='rib22'></div>
+				  <div class='rib23'></div>
+				  <div class='rib24'></div>
+				  <div class='rib25'></div>
+				  <div class='rib26'></div>
+				  <div class='rib27'></div>
+				  <div class='rib28'></div>
+				  <div class='rib29'></div>
+				  <div class='rib30'></div>
+				  <div class='rib31'></div>
+				  <div class='rib32'></div>
+				  <div class='rib33'></div>
+				  <div class='rib34'></div>
+				  <div class='rib35'></div>
+				  <div class='rib36'></div>
+			</div>
+		 <p></p>
+		</div>
+	</div>
+	
+<!-- 音乐 -->
+	<audio autoplay="autoplay" loop="loop" preload="auto" src="images/赵丽颖 - 小幸运.mp3" type="audio/wav"></audio>
+</bgsound>
+</body>
+</html>
